@@ -92,7 +92,7 @@ var EnemyEntity = me.ObjectEntity.extend({
     return false;
   }
 });
-var BulletEntity = me.CollectableEntity.extend({
+var BootEntity = me.CollectableEntity.extend({
   init: function(x, y, settings) {
     settings.image = "bullet";
     this.parent(x, y, settings);
