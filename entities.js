@@ -8,7 +8,7 @@ var PlayerEntity = me.ObjectEntity.extend({
     if (me.input.isKeyPressed('left')) { this.vel.x = -4; } 
     else if (me.input.isKeyPressed('right')) { this.vel.x = 4; } 
     else { this.vel.x = 0; };
-    if (me.input.isKeyPressed('jump')) { this.vel.y -= 5; }
+    if (me.input.isKeyPressed('jump')) { this.vel.y = -5; }
     me.game.collide(this);
     this.updateMovement();
     if (this.bottom > 490){ this.gameOver(); }
