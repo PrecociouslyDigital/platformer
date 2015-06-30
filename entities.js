@@ -42,6 +42,7 @@ var PlayerEntity = me.ObjectEntity.extend({
     document.getElementById('instructions').innerHTML = "";
   }
 });
+console.log(PlayerEntity);
 var CoinEntity = me.CollectableEntity.extend({
   init: function(x, y, settings) {
     this.parent(x, y, settings);
@@ -100,20 +101,5 @@ var BootsEntity = me.CollectableEntity.extend({
     this.collidable = false;
     me.game.remove(this);
     obj.gravity = obj.gravity/1.5;
-  }
-});
-var BulletEntity = me.ObjectEntity.extend({
-  init:function(x,y,setting){
-    bullet.position = PlayerEntity.position
-    settings.image = "bullet";
-    this.parent(x,y,settings);
-  },
-  onCollision : function(res,obj){
-    me.game.remove(obj);
-    me.game.remove(this);
-  },
-  direct:function(x,y){
-    this.vel.x = x;
-    this.vel.y = y;
   }
 });
