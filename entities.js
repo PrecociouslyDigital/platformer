@@ -19,11 +19,6 @@ var PlayerEntity = me.ObjectEntity.extend({
     if (me.input.isKeyPressed('jump')) {
       this.vel.y = -this.jumpHeight;
     }
-    if(me.input.isKeyPressed("shoot")){
-      var enemy = new EnemyEntity()
-      me.game.world.addChild(enemy);
-      enemy.direct(1,0);
-    }
     me.game.collide(this);
     this.updateMovement();
     if (this.bottom > 490){ this.gameOver(); }
