@@ -106,11 +106,11 @@ var BulletEntity = me.CollectableEntity.extend({
 var BulletEntity = me.ObjectEntity.extend({
   init:function(x,y,settings){
     this.parent(x,y,settings);
-  }
+  },
   onCollision : function(res,obj){
     me.game.remove(obj);
     me.game.remove(this);
-  }
+  },
   direct:function(x,y){
     me.vel.x = x;
     me.vel.y = y;
