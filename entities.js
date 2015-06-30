@@ -104,6 +104,7 @@ var BootsEntity = me.CollectableEntity.extend({
 });
 var BulletEntity = me.ObjectEntity.extend({
   init:function(x,y,settings){
+    bullet.position = PlayerEntity.position
     settings.image = "bullet";
     this.parent(x,y,settings);
   },
@@ -112,7 +113,7 @@ var BulletEntity = me.ObjectEntity.extend({
     me.game.remove(this);
   },
   direct:function(x,y){
-    me.vel.x = x;
-    me.vel.y = y;
+    this.vel.x = x;
+    this.vel.y = y;
   }
 });
