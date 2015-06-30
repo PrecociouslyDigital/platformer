@@ -57,7 +57,7 @@ var CoinEntity = me.CollectableEntity.extend({
 }); 
 var EnemyEntity = me.ObjectEntity.extend({
   init: function(x, y, settings) {
-    settings.image = "badguy";
+    settings.image = "badGuy";
     settings.spritewidth = 16;
     this.parent(x, y, settings);
     this.startX = x;
