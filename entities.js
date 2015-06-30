@@ -8,7 +8,7 @@ var PlayerEntity = me.ObjectEntity.extend({
     if (me.input.isKeyPressed('left')) { this.vel.x = -4; } 
     else if (me.input.isKeyPressed('right')) { this.vel.x = 4; } 
     else { this.vel.x = 0; };
-    if (me.input.isKeyPressed('jump')) { this.vel.y += 5; }
+    if (me.input.isKeyPressed('jump')) { this.vel.y -= 5; }
     me.game.collide(this);
     this.updateMovement();
     if (this.bottom > 490){ this.gameOver(); }
@@ -25,6 +25,9 @@ var PlayerEntity = me.ObjectEntity.extend({
     me.state.change(me.state.MENU);
     document.getElementById('game_state').innerHTML = "You Win!";
     document.getElementById('instructions').innerHTML = "";
+  },
+  onCollision : function(res,obj){
+    me.state.change(me.state.MENU);
   }
 });
 var CoinEntity = me.CollectableEntity.extend({
