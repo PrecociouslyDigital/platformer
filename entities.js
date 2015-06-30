@@ -1,14 +1,17 @@
 var PlayerEntity = me.ObjectEntity.extend({
+  jumpHeight : 10,
+  speed : 5,
   init: function(x, y, settings) {
     this.parent(x, y, settings);
     me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
     this.setVelocity(3, 12);
+    this.collidable = true;
   },
   update: function() {
-    if (me.input.isKeyPressed('left')) { this.vel.x = -4; } 
-    else if (me.input.isKeyPressed('right')) { this.vel.x = 4; } 
+    if (me.input.isKeyPressed('left')) { this.vel.x = -speed; } 
+    else if (me.input.isKeyPressed('right')) { this.vel.x = speed; } 
     else { this.vel.x = 0; };
-    if (me.input.isKeyPressed('jump')) { this.vel.y = -5; }
+    if (me.input.isKeyPressed('jump')) { this.vel.y = -jumpHeight; }
     me.game.collide(this);
     this.updateMovement();
     if (this.bottom > 490){ this.gameOver(); }
