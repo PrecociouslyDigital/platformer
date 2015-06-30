@@ -92,7 +92,7 @@ var EnemyEntity = me.ObjectEntity.extend({
     return false;
   }
 });
-var BootEntity = me.CollectableEntity.extend({
+var BootsEntity = me.CollectableEntity.extend({
   init: function(x, y, settings) {
     this.parent(x, y, settings);
   },
