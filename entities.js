@@ -1,24 +1,14 @@
 var PlayerEntity = me.ObjectEntity.extend({
-  speed: 4,
-  jumpHeight: 100,
   init: function(x, y, settings) {
     this.parent(x, y, settings);
     me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
     this.setVelocity(3, 12);
   },
   update: function() {
-    if (me.input.isKeyPressed('left')) {
-      this.vel.x = -this.speed;
-    } 
-    else if (me.input.isKeyPressed('right')) {
-      this.vel.x = this.speed;
-    }  
-    else {
-      this.vel.x = 0;
-    };
-    if (me.input.isKeyPressed('jump')) {
-      this.vel.y = -this.jumpHeight;
-    }
+    if (me.input.isKeyPressed('left')) { this.vel.x = -4; } 
+    else if (me.input.isKeyPressed('right')) { this.vel.x = 4; } 
+    else { this.vel.x = 0; };
+    if (me.input.isKeyPressed('jump')) { this.vel.y += 5; }
     me.game.collide(this);
     this.updateMovement();
     if (this.bottom > 490){ this.gameOver(); }
@@ -35,12 +25,8 @@ var PlayerEntity = me.ObjectEntity.extend({
     me.state.change(me.state.MENU);
     document.getElementById('game_state').innerHTML = "You Win!";
     document.getElementById('instructions').innerHTML = "";
-  },
-  onCollision : function(a,b){
-    this.gameOver();
   }
 });
-console.log(PlayerEntity);
 var CoinEntity = me.CollectableEntity.extend({
   init: function(x, y, settings) {
     this.parent(x, y, settings);
@@ -56,7 +42,7 @@ var CoinEntity = me.CollectableEntity.extend({
 }); 
 var EnemyEntity = me.ObjectEntity.extend({
   init: function(x, y, settings) {
-    settings.image = "badGuy";
+    settings.image = "badguy";
     settings.spritewidth = 16;
     this.parent(x, y, settings);
     this.startX = x;
@@ -98,6 +84,6 @@ var BootsEntity = me.CollectableEntity.extend({
   onCollision : function (res, obj) {
     this.collidable = false;
     me.game.remove(this);
-    obj.gravity = obj.gravity/1.5;
+    obj.gravity = obj.gravity/4;
   }
 });
