@@ -17,7 +17,7 @@ var PlayerEntity = me.ObjectEntity.extend({
       this.vel.x = 0;
     };
     if (me.input.isKeyPressed('jump')) {
-      this.vel.y = this.jumpHeight;
+      this.doJump();
     }
     me.game.collide(this);
     this.updateMovement();
