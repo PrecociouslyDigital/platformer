@@ -40,7 +40,7 @@ var PlayerEntity = me.ObjectEntity.extend({
     me.state.change(me.state.MENU);
     document.getElementById('game_state').innerHTML = "You Win!";
     document.getElementById('instructions').innerHTML = "";
-  }
+  },
   onCollision : function(a,b){
     this.gameOver();
   }
