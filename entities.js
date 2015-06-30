@@ -57,8 +57,8 @@ var CoinEntity = me.CollectableEntity.extend({
 }); 
 var EnemyEntity = me.ObjectEntity.extend({
   init: function(x, y, settings) {
-    //settings.image = "badGuy";
-    //settings.spritewidth = 16;
+    settings.image = "badGuy";
+    settings.spritewidth = 16;
     this.parent(x, y, settings);
     this.startX = x;
     this.endX = x + settings.width - settings.spritewidth;
@@ -103,7 +103,7 @@ var BootsEntity = me.CollectableEntity.extend({
   }
 });
 var BulletEntity = me.ObjectEntity.extend({
-  init:function(x,y,settings){
+  init:function(x,y,setting){
     bullet.position = PlayerEntity.position
     settings.image = "bullet";
     this.parent(x,y,settings);
