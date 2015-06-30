@@ -1,6 +1,6 @@
 var PlayerEntity = me.ObjectEntity.extend({
   speed: 4,
-  jumpHeight: 10;
+  jumpHeight: 10,
   init: function(x, y, settings) {
     this.parent(x, y, settings);
     me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
