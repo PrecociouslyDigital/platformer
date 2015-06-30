@@ -1,10 +1,11 @@
 var PlayerEntity = me.ObjectEntity.extend({
-  speed: 5,
+  speed: 4,
   jumpHeight: 10;
   init: function(x, y, settings) {
     this.parent(x, y, settings);
     me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
     this.setVelocity(3, 12);
+    this.gravity /= 2;
   },
   update: function() {
     if (me.input.isKeyPressed('left')) {
@@ -94,6 +95,6 @@ var BootsEntity = me.CollectableEntity.extend({
   onCollision : function (res, obj) {
     this.collidable = false;
     me.game.remove(this);
-    obj.gravity = obj.gravity/4;
+    obj.gravity = obj.gravity/1.5;
   }
 });
