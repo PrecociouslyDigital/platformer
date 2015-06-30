@@ -19,6 +19,11 @@ var PlayerEntity = me.ObjectEntity.extend({
     if (me.input.isKeyPressed('jump')) {
       this.vel.y = -this.jumpHeight;
     }
+    if(me.input.isKeyPressed("shoot")){
+      var enemy = new EnemyEntity()
+      me.game.world.addChild(enemy);
+      enemy.direct(1,0);
+    }
     me.game.collide(this);
     this.updateMovement();
     if (this.bottom > 490){ this.gameOver(); }
@@ -87,13 +92,27 @@ var EnemyEntity = me.ObjectEntity.extend({
     return false;
   }
 });
-var BootsEntity = me.CollectableEntity.extend({
+var BulletEntity = me.CollectableEntity.extend({
   init: function(x, y, settings) {
+    settings.image = "bullet";
     this.parent(x, y, settings);
   },
   onCollision : function (res, obj) {
     this.collidable = false;
     me.game.remove(this);
     obj.gravity = obj.gravity/1.5;
+  }
+});
+var BulletEntity = me.ObjectEntity.extend({
+  init:function(x,y,settings){
+    this.parent(x,y,settings);
+  }
+  onCollision : function(res,obj){
+    me.game.remove(obj);
+    me.game.remove(this);
+  }
+  direct:function(x,y){
+    me.vel.x = x;
+    me.vel.y = y;
   }
 });
