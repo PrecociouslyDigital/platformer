@@ -4,7 +4,7 @@ var PlayerEntity = me.ObjectEntity.extend({
   init: function(x, y, settings) {
     this.parent(x, y, settings);
     me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
-    this.setVelocity(3, 12);
+    this.setVelocity(0, 0);
   },
   update: function() {
     if (me.input.isKeyPressed('left')) {
@@ -12,7 +12,7 @@ var PlayerEntity = me.ObjectEntity.extend({
     } 
     else if (me.input.isKeyPressed('right')) {
       this.vel.x = this.speed;
-    } 
+    }  
     else {
       this.vel.x = 0;
     };
@@ -40,6 +40,9 @@ var PlayerEntity = me.ObjectEntity.extend({
     me.state.change(me.state.MENU);
     document.getElementById('game_state').innerHTML = "You Win!";
     document.getElementById('instructions').innerHTML = "";
+  }
+  onCollision : function(a,b){
+    this.gameOver();
   }
 });
 console.log(PlayerEntity);
