@@ -94,7 +94,6 @@ var EnemyEntity = me.ObjectEntity.extend({
 });
 var BootEntity = me.CollectableEntity.extend({
   init: function(x, y, settings) {
-    settings.image = "bullet";
     this.parent(x, y, settings);
   },
   onCollision : function (res, obj) {
@@ -105,6 +104,7 @@ var BootEntity = me.CollectableEntity.extend({
 });
 var BulletEntity = me.ObjectEntity.extend({
   init:function(x,y,settings){
+    settings.image = "bullet";
     this.parent(x,y,settings);
   },
   onCollision : function(res,obj){
