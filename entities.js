@@ -4,7 +4,7 @@ var PlayerEntity = me.ObjectEntity.extend({
   init: function(x, y, settings) {
     this.parent(x, y, settings);
     me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
-    this.setVelocity(0, 0);
+    this.setVelocity(3, 12);
   },
   update: function() {
     if (me.input.isKeyPressed('left')) {
